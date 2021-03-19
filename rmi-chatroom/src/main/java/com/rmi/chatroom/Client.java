@@ -42,25 +42,16 @@ public class Client {
 
     public static void main(String[] args){
         try{
-            // Registry registry = LocateRegistry.getRegistry("localhost", 5099);
-            // Chatroom stub = (Chatroom) registry.lookup("chatroom");
-
-            // stub.post("hello");
-            // stub.post("123");
-            // String response = stub.get();
-            // System.out.println("response: " + response);
             Client client = new Client();
             Registry registry = LocateRegistry.getRegistry("localhost", 5099);
             Chatroom stub = (Chatroom) registry.lookup("chatroom");
             System.out.println("===============================");
             System.out.println("| Welcome to the RMI Chatroom |");
             System.out.println("===============================");
-            // System.out.println("You can choose to create a new chatroom or entering an existing room");
             System.out.println("Use keyboard interruption to exit (Ctrl-c)");
 
             while(true){
                 String existingRooms = stub.getRooms();
-                // Set<String> existingRooms = new HashSet<>();
                 if(client.getCurrentRoom() == null){
                     System.out.println("Existing rooms: " + existingRooms.toString());
                     System.out.print("Would you like to enter an existing " +
